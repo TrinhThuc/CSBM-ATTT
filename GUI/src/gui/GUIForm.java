@@ -28,7 +28,7 @@ public class GUIForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        bgKhoa = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -81,7 +81,7 @@ public class GUIForm extends javax.swing.JFrame {
         jLabel3.setText("Chọn độ dài khóa :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 150, 20));
 
-        buttonGroup1.add(rb128);
+        bgKhoa.add(rb128);
         rb128.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         rb128.setText("128");
         rb128.addActionListener(new java.awt.event.ActionListener() {
@@ -91,12 +91,12 @@ public class GUIForm extends javax.swing.JFrame {
         });
         jPanel1.add(rb128, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
 
-        buttonGroup1.add(rb192);
+        bgKhoa.add(rb192);
         rb192.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         rb192.setText("192");
         jPanel1.add(rb192, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
 
-        buttonGroup1.add(rb256);
+        bgKhoa.add(rb256);
         rb256.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         rb256.setText("256");
         rb256.addActionListener(new java.awt.event.ActionListener() {
@@ -106,8 +106,8 @@ public class GUIForm extends javax.swing.JFrame {
         });
         jPanel1.add(rb256, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
-        tfKhoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(tfKhoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 680, 30));
+        tfKhoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(tfKhoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 680, 40));
 
         btnTaoKhoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnTaoKhoa.setText("Tạo");
@@ -124,22 +124,22 @@ public class GUIForm extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setText("Bản rõ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 50, 40));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel6.setText("Bản mã");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, 40));
 
-        tfBanMaMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfBanMaMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tfBanMaMaHoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfBanMaMaHoaActionPerformed(evt);
             }
         });
-        jPanel1.add(tfBanMaMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 680, 30));
+        jPanel1.add(tfBanMaMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 680, 40));
 
-        tfBanRoMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(tfBanRoMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 680, 30));
+        tfBanRoMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(tfBanRoMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 680, 40));
 
         btnMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnMaHoa.setText("Mã hóa");
@@ -148,19 +148,19 @@ public class GUIForm extends javax.swing.JFrame {
                 btnMaHoaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 340, 130, -1));
+        jPanel1.add(btnMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 350, 130, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel10.setText("Thời gian giải mã: ");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, -1, -1));
 
         tfThongBaoMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfThongBaoMaHoa.setText("Thông báo mã hóa thành công/ thất bại");
-        jPanel1.add(tfThongBaoMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
+        jPanel1.add(tfThongBaoMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         labelTGMaHoa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelTGMaHoa.setText("x.x ms");
-        jPanel1.add(labelTGMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 340, -1, -1));
+        jPanel1.add(labelTGMaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setText("Giải mã");
@@ -168,45 +168,55 @@ public class GUIForm extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setText("Bản mã");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 60, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setText("Bản rõ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, 50, 40));
 
-        tfBanRoGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(tfBanRoGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 680, 30));
+        tfBanRoGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(tfBanRoGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 680, 40));
 
         tfThongBaoGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tfThongBaoGiaiMa.setText("Thông báo giải mã thành công/ thất bại");
-        jPanel1.add(tfThongBaoGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, -1));
+        jPanel1.add(tfThongBaoGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 570, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel14.setText("Thời gian giải mã: ");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 560, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, -1, -1));
 
         btnGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         btnGiaiMa.setText("Giải mã");
-        jPanel1.add(btnGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 560, 130, -1));
+        btnGiaiMa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGiaiMaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 130, -1));
 
         labelTGGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelTGGiaiMa.setText("x.x ms");
-        jPanel1.add(labelTGGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 560, -1, -1));
+        jPanel1.add(labelTGGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, -1, -1));
 
-        tfBanMaGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tfBanMaGiaiMa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tfBanMaGiaiMa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfBanMaGiaiMaActionPerformed(evt);
             }
         });
-        jPanel1.add(tfBanMaGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 680, 30));
+        jPanel1.add(tfBanMaGiaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 680, 40));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 910, 20));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 910, -1));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 910, 20));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 910, 20));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 910, 20));
 
         btnReset.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 650, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 740));
@@ -237,23 +247,61 @@ public class GUIForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập/tạo khóa !");
             return;
         }
+
+        if (tfBanRoMaHoa == null || tfBanRoMaHoa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi mã hóa !");
+            return;
+        } else {
+            tfBanMaMaHoa.setText("chuoi sau khi click giai ma");
+            labelTGMaHoa.setText("1.0");
+        }
     }//GEN-LAST:event_btnMaHoaActionPerformed
 
     private void btnTaoKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoKhoaActionPerformed
         // TODO add your handling code here:
         if (rb128.isSelected()) {
             JOptionPane.showMessageDialog(this, "128 !");
+            tfKhoa.setText("random chuoi khoa bat ki o day!");
         } else if (rb192.isSelected()) {
             JOptionPane.showMessageDialog(this, "192");
+            tfKhoa.setText("random chuoi khoa bat ki o day!");
 
         } else if (rb256.isSelected()) {
             JOptionPane.showMessageDialog(this, "256");
+            tfKhoa.setText("random chuoi khoa bat ki o day!");
 
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng Chọn kiểu khóa !");
             return;
         }
     }//GEN-LAST:event_btnTaoKhoaActionPerformed
+
+    private void btnGiaiMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiaiMaActionPerformed
+        // TODO add your handling code here:
+        if (tfKhoa == null || tfKhoa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập/tạo khóa !");
+            return;
+        }
+
+        if (tfBanMaGiaiMa == null || tfBanMaGiaiMa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi giải mã !");
+            return;
+        } else {
+            tfBanRoGiaiMa.setText("chuoi sau khi click giai ma");
+            labelTGGiaiMa.setText("2.0");
+        }
+
+    }//GEN-LAST:event_btnGiaiMaActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        bgKhoa.clearSelection();
+        tfBanMaGiaiMa.setText("");
+        tfBanMaMaHoa.setText("");
+        tfBanRoMaHoa.setText("");
+        tfBanRoGiaiMa.setText("");
+        tfKhoa.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,11 +339,11 @@ public class GUIForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bgKhoa;
     private javax.swing.JButton btnGiaiMa;
     private javax.swing.JButton btnMaHoa;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnTaoKhoa;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
