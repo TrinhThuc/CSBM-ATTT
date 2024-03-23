@@ -4,6 +4,10 @@
  */
 package gui;
 
+import core.AES;
+import java.text.DecimalFormat;
+import java.util.Base64;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -219,10 +223,24 @@ public class GUIForm extends javax.swing.JFrame {
         });
         jPanel1.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 650, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 740));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1024, 950));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private static AES cipher;
+    private static DecimalFormat decimalFormat = new DecimalFormat("#.###########");
+    private static String keyString;
+
+    private static String generateRandomString(int length) {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(characters.length());
+            sb.append(characters.charAt(index));
+        }
+        return sb.toString();
+    }
 
     private void rb128ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb128ActionPerformed
         // TODO add your handling code here:
@@ -252,8 +270,14 @@ public class GUIForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi mã hóa !");
             return;
         } else {
-            tfBanMaMaHoa.setText("chuoi sau khi click giai ma");
-            labelTGMaHoa.setText("1.0");
+            cipher = new AES(keyString.getBytes());
+            long startTimeEncrypt = System.nanoTime();
+            byte[] encryptResult = cipher.ECB_encrypt(tfBanRoMaHoa.getText().getBytes());
+            long endTimeEncrypt = System.nanoTime();
+            String encryptResultBase64 = Base64.getEncoder().encodeToString(encryptResult);
+            double encryptTime = (endTimeEncrypt - startTimeEncrypt) / 1e6;
+            tfBanMaMaHoa.setText(encryptResultBase64);
+            labelTGMaHoa.setText(String.valueOf(encryptTime) + " ms");
         }
     }//GEN-LAST:event_btnMaHoaActionPerformed
 
@@ -261,14 +285,20 @@ public class GUIForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (rb128.isSelected()) {
             JOptionPane.showMessageDialog(this, "128 !");
-            tfKhoa.setText("random chuoi khoa bat ki o day!");
+            String key = generateRandomString(16);
+            keyString = key;
+            tfKhoa.setText(key);
         } else if (rb192.isSelected()) {
             JOptionPane.showMessageDialog(this, "192");
-            tfKhoa.setText("random chuoi khoa bat ki o day!");
+            String key = generateRandomString(24);
+            keyString = key;
+            tfKhoa.setText(key);
 
         } else if (rb256.isSelected()) {
             JOptionPane.showMessageDialog(this, "256");
-            tfKhoa.setText("random chuoi khoa bat ki o day!");
+            String key = generateRandomString(32);
+            keyString = key;
+            tfKhoa.setText(key);
 
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng Chọn kiểu khóa !");
@@ -287,8 +317,13 @@ public class GUIForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi giải mã !");
             return;
         } else {
-            tfBanRoGiaiMa.setText("chuoi sau khi click giai ma");
-            labelTGGiaiMa.setText("2.0");
+            cipher = new AES(keyString.getBytes());
+            long startTimeDecrypt = System.nanoTime();
+            byte[] decryptResult = cipher.ECB_decrypt(Base64.getDecoder().decode(tfBanMaGiaiMa.getText()));
+            long endTimeDecrypt = System.nanoTime();
+            double decryptTime = (endTimeDecrypt - startTimeDecrypt) / 1e6;
+            tfBanRoGiaiMa.setText(new String(decryptResult).trim());
+            labelTGGiaiMa.setText(String.valueOf(decryptTime) + " ms");
         }
 
     }//GEN-LAST:event_btnGiaiMaActionPerformed
