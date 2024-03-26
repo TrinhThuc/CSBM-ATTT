@@ -290,39 +290,45 @@ public class GUIForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi mã hóa !");
             return;
         } else {
-            cipher = new AES(keyString.getBytes());
+            try {
+                 cipher = new AES(keyString.getBytes());
             long startTimeEncrypt = System.nanoTime();
             byte[] encryptResult = cipher.ECB_encrypt(tfBanRoMaHoa.getText().getBytes());
             long endTimeEncrypt = System.nanoTime();
-            
+            System.out.println("mode now : "+ cbbChonCheDoMaHoa.getSelectedItem().toString());
             String encryptResultBase64 = Base64.getEncoder().encodeToString(encryptResult);
             double encryptTime = (endTimeEncrypt - startTimeEncrypt) / 1e6;
+            JOptionPane.showMessageDialog(this, "Mã hóa thành công");
             tfBanMaMaHoa.setText(encryptResultBase64);
             labelTGMaHoa.setText(String.valueOf(encryptTime) + " ms");
+            } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, "Mã hóa thất bại!!!");
+
+            }
         }
     }//GEN-LAST:event_btnMaHoaActionPerformed
 
     private void btnTaoKhoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaoKhoaActionPerformed
         // TODO add your handling code here:
         if (rb128.isSelected()) {
-            JOptionPane.showMessageDialog(this, "128 !");
+            JOptionPane.showMessageDialog(this, "Tạo khóa 128 thành công !");
             String key = generateRandomString(16);
             keyString = key;
             tfKhoa.setText(key);
         } else if (rb192.isSelected()) {
-            JOptionPane.showMessageDialog(this, "192");
+            JOptionPane.showMessageDialog(this, "Tạo khóa 192 thành công");
             String key = generateRandomString(24);
             keyString = key;
             tfKhoa.setText(key);
 
         } else if (rb256.isSelected()) {
-            JOptionPane.showMessageDialog(this, "256");
+            JOptionPane.showMessageDialog(this, "Tạo khóa 256 thành công");
             String key = generateRandomString(32);
             keyString = key;
             tfKhoa.setText(key);
 
         } else {
-            JOptionPane.showMessageDialog(this, "Vui lòng Chọn kiểu khóa !");
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn kiểu khóa !");
             return;
         }
     }//GEN-LAST:event_btnTaoKhoaActionPerformed
@@ -338,13 +344,18 @@ public class GUIForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập chuỗi giải mã !");
             return;
         } else {
-            cipher = new AES(keyString.getBytes());
+            try {
+                cipher = new AES(keyString.getBytes());
             long startTimeDecrypt = System.nanoTime();
             byte[] decryptResult = cipher.ECB_decrypt(Base64.getDecoder().decode(tfBanMaGiaiMa.getText()));
             long endTimeDecrypt = System.nanoTime();
             double decryptTime = (endTimeDecrypt - startTimeDecrypt) / 1e6;
+            JOptionPane.showMessageDialog(this, "Giải mã thành công");
             tfBanRoGiaiMa.setText(new String(decryptResult).trim());
             labelTGGiaiMa.setText(String.valueOf(decryptTime) + " ms");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Giải mã thất bại !!!!!!!!!");
+            }
         }
 
     }//GEN-LAST:event_btnGiaiMaActionPerformed
@@ -363,6 +374,8 @@ public class GUIForm extends javax.swing.JFrame {
 
     private void cbbChonCheDoMaHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbChonCheDoMaHoaActionPerformed
         // TODO add your handling code here:
+        String txtCbbMaHoa = cbbChonCheDoMaHoa.getSelectedItem().toString();
+        System.out.println("selected: "+ txtCbbMaHoa);
     }//GEN-LAST:event_cbbChonCheDoMaHoaActionPerformed
 
     private void cbbChonCheDoGiaiMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbChonCheDoGiaiMaActionPerformed
